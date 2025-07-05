@@ -5,12 +5,10 @@
 {% block content %}
     <h3>Languages</h3>
     <ol class="list-group list-group-numbered">
-        {% for language in languages %}
-            <li class="list-group-item">
-                <strong>{{ language }}</strong>
-            </li>
+        {% for lang in languages %}
+            <li>{{ lang.name }}</li>
         {% empty %}
-            <li>No countries found.</li>
+            <li>No languages found</li>
         {% endfor %}
     </ol>
 {% endblock %}

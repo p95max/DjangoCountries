@@ -6,11 +6,7 @@
     <h3>Countries</h3>
     <ul class="list-group">
         {% for country in countries %}
-            <li class="list-group-item">
-                <a href="{% url 'countries:country-detail' country.country %}">
-                    * <strong>{{ country.country }}</strong>
-                </a>
-            </li>
+            <a href="{% url 'countries:country-detail' country.pk %}">* {{ country.name }}</a>
         {% empty %}
             <li>No countries found.</li>
         {% endfor %}
