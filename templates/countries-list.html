@@ -8,7 +8,7 @@
         {% for country in countries %}
             <li class="list-group-item">
                 <a href="{% url 'countries:country-detail' country.country %}">
-                    <strong>{{ country.country }}</strong>
+                    * <strong>{{ country.country }}</strong>
                 </a>
             </li>
         {% empty %}

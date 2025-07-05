@@ -38,3 +38,20 @@ def country_detail(request, country_name=None):
     }
 
     return render(request, 'country-detail.html', context=context)
+
+def language_list(request):
+    json_path = 'countries.json'
+    with open(json_path, encoding='utf-8') as f:
+        countries = json.load(f)
+
+    all_languages = []
+    for country in countries:
+        all_languages.extend(country['languages'])
+
+    unique_languages = list(set(all_languages))
+
+    context = {
+        'languages': unique_languages,
+    }
+
+    return render(request, 'languages.html', context=context)
