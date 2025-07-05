@@ -9,14 +9,15 @@
   {% endfor %}
 </div>
 
-<ul>
+<ol class="list-group list-group-numbered">
   {% for country in countries %}
-    <li>
+    <li class="list-group-item">
       <a href="{% url 'countries:country-detail' country.pk %}">{{ country.name }}</a>
     </li>
   {% empty %}
-    <li>No countries found for this letter.</li>
+    <li class="list-group-item">No countries found for this letter.</li>
   {% endfor %}
-</ul>
+</ol><br>
+
 <a href="{% url 'countries:countries-list' %}">&larr; Back to all countries</a>
 {% endblock %}
