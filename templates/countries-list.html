@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Countries and Their Languages List{% endblock %}
+
+{% block content %}
+    <h3>Countries</h3>
+    <ul class="list-group">
+        {% for country in countries %}
+            <li class="list-group-item">
+                <a href="{% url 'countries:country-detail' country.country %}">
+                    <strong>{{ country.country }}</strong>
+                </a>
+            </li>
+        {% empty %}
+            <li>No countries found.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

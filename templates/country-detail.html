@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ country.country }}{% endblock %}
+
+{% block content %}
+    <h3>{{ country.country }}</h3>
+    <p> <strong>Languages:</strong> {{ country.languages|join:"," }} </p>
+    <a href="{% url 'countries:countries-list' %}"> Back to list</a>
+
+{% endblock %}
