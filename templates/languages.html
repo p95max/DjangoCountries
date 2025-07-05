@@ -5,10 +5,15 @@
 {% block content %}
     <h3>Languages</h3>
     <ol class="list-group list-group-numbered">
-        {% for lang in languages %}
-            <li>{{ lang.name }}</li>
+        {% for lang in page_obj %}
+            <li>
+            <a href="{% url 'countries:countries-by-lang' lang.pk %}">* {{ lang.name }}</a>
+            </li>
         {% empty %}
             <li>No languages found</li>
         {% endfor %}
     </ol>
+
+{% include 'includes/paginator.html' %}
+
 {% endblock %}

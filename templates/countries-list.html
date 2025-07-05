@@ -3,12 +3,17 @@
 {% block title %}Countries and Their Languages List{% endblock %}
 
 {% block content %}
-    <h3>Countries</h3>
+
+{% include 'includes/sort-by-letters.html' %}
+
     <ul class="list-group">
-        {% for country in countries %}
+        {% for country in page_obj %}
             <a href="{% url 'countries:country-detail' country.pk %}">* {{ country.name }}</a>
         {% empty %}
             <li>No countries found.</li>
         {% endfor %}
     </ul>
+
+{% include 'includes/paginator.html' %}
+
 {% endblock %}

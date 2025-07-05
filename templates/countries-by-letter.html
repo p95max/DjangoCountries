@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Countries starting with "{{ letter }}"</h2>
+
+<div class="mb-3">
+  {% for l in 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' %}
+    <a href="{% url 'countries:countries-by-letter' l %}" style="margin-right: 5px;">{{ l }}</a>
+  {% endfor %}
+</div>
+
+<ul>
+  {% for country in countries %}
+    <li>
+      <a href="{% url 'countries:country-detail' country.pk %}">{{ country.name }}</a>
+    </li>
+  {% empty %}
+    <li>No countries found for this letter.</li>
+  {% endfor %}
+</ul>
+<a href="{% url 'countries:countries-list' %}">&larr; Back to all countries</a>
+{% endblock %}

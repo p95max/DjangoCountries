@@ -1,0 +1,5 @@
+<div class="mb-3">Countries by letter:
+  {% for l in 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' %}
+    <a href="{% url 'countries:countries-by-letter' l %}" style="margin-right: 5px;">{{ l }}</a>
+  {% endfor %}
+</div>

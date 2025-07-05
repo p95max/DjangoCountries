@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Sort by language{% endblock %}
+
+{% block content %}
+
+<h2>Countries where "{{ language.name }}" uses:</h2>
+
+<ul class="list-group">
+    {% for country in countries %}
+        <li>
+            <a href="{% url 'countries:country-detail' country.pk %}">{{ country.name }}</a>
+        </li>
+    {% empty %}
+        <li>No results found</li>
+    {% endfor %}
+</ul><br>
+
+<a href="{% url 'countries:countries-list' %}"><-- Back to list</a>
+
+{% endblock %}
