@@ -1,4 +1,4 @@
-# countries/management/commands/import_countries_languages.py
+
 import json
 from django.core.management.base import BaseCommand
 from countries.models import Country, Language
